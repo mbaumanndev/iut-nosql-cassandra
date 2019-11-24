@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  cassandra:
+    restart: 'no'
+    image: cassandra:3.11.5
+
+  cqlsh:
+    restart: 'no'
+    image: cassandra:3.11.5
+    depends_on:
+      - cassandra
+    command: >
+      sh -c 'cqlsh cassandra '
